@@ -38,20 +38,40 @@ int len(List *list)
     return length;
 }
 
-bool testLenFunction()
+bool testLen()
 {
     List *list = create();
-    add(list, 10, 0);
-    add(list, 15, 0);
-    add(list, 30, 0);
-    if (lenList(list) == 3)
+    int counter = 0;
+
+    add(list, 5, 0);
+    if (len(list) == 1) ++counter;
+
+    add(list, 6, 0);
+    if (len(list) == 2) ++counter;
+
+    add(list, 4, 2);
+    if (len(list) == 3) ++counter;
+
+    pop(list, 0);
+    if (len(list) == 2) ++counter;
+
+    if (counter == 4)
+    {
+        return false;
+    }
+    else
     {
         return true;
     }
-    return false;
 }
 
 int main()
 {
+    if (testLen())
+    {
+        printf("Len function error!");
+        return 0;
+    }
+    
     return 0;
 }
