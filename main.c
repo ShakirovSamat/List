@@ -13,6 +13,13 @@ typedef struct
     Node *head;
 }List;
 
+List *create()
+{
+    List *list = calloc(1,sizeof(List));
+    list->head = calloc(1,sizeof(Node));
+    return list;
+}
+
 int add(List *list, int value,int index)
 {
     if (list == NULL)
