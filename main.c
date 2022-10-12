@@ -1,6 +1,6 @@
 #include <stddef.h>
 #include <malloc.h>
-
+#include <stdbool.h>
 
 typedef struct 
 {
@@ -71,7 +71,28 @@ int add(List *list, int value,int index)
 
 }
 
+bool testAddFunction()
+{
+    List *list = create();
+    if(!add(list, 5, 10)) return false;
+    if(!add(list, 5, 0)) return false;
+    if(!add(list, 10, 0)) return false;
+    if(!add(list, 20, 2)) return false;
+    if(!add(list, 30, -3)) return false;
+    if(!add(list, 50, 3)) return false;
+    if(!add(list, 60, 2)) return false;
+    if(!add(list, 70, 1)) return false;
+    
+    return true;
+}
 int main()
 {
+    if(testAddFunction)
+    {
+        printf("Works");
+    }
+    else{
+        printf("Doesn't work");
+    }
     return 0;
 }
